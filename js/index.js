@@ -98,7 +98,7 @@ function getShareUrl(platform, estrofa) {
             // Servicio que pregunta la instancia del usuario y redirige.
             return `https://toot.kytta.dev/?text=${encodedText}`;
         case 'x':
-            return `https://twitter.com/intent/tweet?text=${encodedText}`;
+            return `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`;
         case 'facebook':
             return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
         case 'telegram':
