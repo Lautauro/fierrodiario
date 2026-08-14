@@ -69,17 +69,24 @@ function imprimirEstrofa(estrofa) {
     numEstrofaEl.innerText = estrofa.numero;
     referenciaEl.href = `https://es.wikisource.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro_(1894)/${estrofa.capitulo}`;
 }
+/**
+ * @param {Estrofa} estrofa
+ */
+function citarEstrofa(estrofa) {
+    if (!estrofa || !(estrofa instanceof Estrofa)) {
+        throw new Error('El valor ingresado en el campo "estrofa" no es del tipo Estrofa.');
+    }
+    return `"${estrofa.estrofa}"\n\n` +
+           "— El Gaucho Martín Fierro, José Hernández, Cap. " +
+           `${estrofa.capitulo}, Estrofa ${estrofa.numero}\n\n${PAGE_URL}`;
+}
 
 /**
  * @param {string} platform
  * @param {Estrofa} estrofa
  */
 function getShareUrl(platform, estrofa) {
-    const text =
-        `"${estrofa.estrofa}"\n\n`+
-        "— El Gaucho Martín Fierro, José Hernández, Cap. "
-        +`${estrofa.capitulo}, Estrofa ${estrofa.numero}\n\n${PAGE_URL}`;
-
+    const text = citarEstrofa(estrofa);
     const encodedText = encodeURIComponent(text);
     const encodedUrl = encodeURIComponent(window.location.href);
     switch (platform) {
@@ -165,6 +172,15 @@ function getShareUrl(platform, estrofa) {
             });
         });
 
+        // Copiar al portapapels
+        const copyBtnEl = document.getElementById('copyBtn');
+        if (copyBtnEl) {
+            copyBtnEl.addEventListener('click', () => {
+                navigator.clipboard.writeText(citarEstrofa(estrofaDelDia));
+            });
+        }
+
+        // Contenido ya cargado
         const loadingEl = document.getElementById('loading');
         const mainContainer = document.getElementById('mainContainer');
 
