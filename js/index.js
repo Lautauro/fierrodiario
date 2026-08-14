@@ -33,10 +33,8 @@ function mulberry32(seed) {
  */
 function shuffleArray(arr, seed) {
     const rand = mulberry32(seed);
-    // const copy = [...arr];
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(rand() * (i + 1));
-        // [copy[i], copy[j]] = [copy[j], copy[i]];
         [arr[i], arr[j]] = [arr[j], arr[i]];
     };
 }
