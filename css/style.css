@@ -36,11 +36,11 @@ span a:hover {
 }
 
 .capitulo {
+    margin: 0;
+
     font-family: 'Spectral', serif;
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: .5em;
-    margin: 0;
     text-align: center;
 }
 
@@ -146,8 +146,9 @@ dialog {
 }
 
 .share-dialog h2 {
-    margin-bottom: 1rem;
     margin: 0;
+
+    margin-bottom: 1rem;
     text-align: center;
 }
 
