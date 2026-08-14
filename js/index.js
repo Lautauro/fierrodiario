@@ -72,13 +72,14 @@ function imprimirEstrofa(estrofa) {
 /**
  * @param {Estrofa} estrofa
  */
-function citarEstrofa(estrofa) {
+function citarEstrofa(estrofa, url = true) {
     if (!estrofa || !(estrofa instanceof Estrofa)) {
         throw new Error('El valor ingresado en el campo "estrofa" no es del tipo Estrofa.');
     }
     return `"${estrofa.estrofa}"\n\n` +
            "— El Gaucho Martín Fierro, José Hernández, Cap. " +
-           `${estrofa.capitulo}, Estrofa ${estrofa.numero}\n\n${PAGE_URL}`;
+           `${estrofa.capitulo}, Estrofa ${estrofa.numero}` +
+           (url ? `\n\n${PAGE_URL}` : '');
 }
 
 /**
@@ -86,9 +87,9 @@ function citarEstrofa(estrofa) {
  * @param {Estrofa} estrofa
  */
 function getShareUrl(platform, estrofa) {
-    const text = citarEstrofa(estrofa);
+    const text = citarEstrofa(estrofa, platform !== 'telegram');
     const encodedText = encodeURIComponent(text);
-    const encodedUrl = encodeURIComponent(window.location.href);
+    const encodedUrl = encodeURIComponent(PAGE_URL);
     switch (platform) {
         case 'whatsapp':
             return `https://wa.me/?text=${encodedText}`;
@@ -100,9 +101,10 @@ function getShareUrl(platform, estrofa) {
         case 'x':
             return `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`;
         case 'facebook':
-            return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
+            // Facebook no permite añadirle un cuerpo a la publicación
+            return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
         case 'telegram':
-            return `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+            return `https://t.me/share/url?url=${encodedUrl}&text=${encodeURIComponent('\n')}${encodedText}`;
         case 'email':
             return `mailto:?subject=${encodeURIComponent('El Gaucho Martín Fierro - Estrofa')}&body=${encodedText}`;
         default:
