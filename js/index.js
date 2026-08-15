@@ -112,13 +112,20 @@ function getShareUrl(platform, estrofa) {
     }
 }
 
-(()=>{
-    const actualInstant = Temporal.Now.instant();
-    const ArgDate = actualInstant.toZonedDateTimeISO('America/Argentina/Buenos_Aires');
-    const dayOfYear = ArgDate.dayOfYear;
-    const year = ArgDate.year;
 
-    document.addEventListener("DOMContentLoaded", async () => {
+if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", init);
+} else {
+    init();
+}
+
+async function init() {
+    try {
+        const actualInstant = Temporal.Now.instant();
+        const ArgDate = actualInstant.toZonedDateTimeISO('America/Argentina/Buenos_Aires');
+        const dayOfYear = ArgDate.dayOfYear;
+        const year = ArgDate.year;
+
         const shareButton = document.getElementById("shareButton");
         const shareDialog = document.getElementById("shareDialog");
 
@@ -188,5 +195,9 @@ function getShareUrl(platform, estrofa) {
 
         loadingEl.remove();
         mainContainer.classList.remove('hidden');
-    });
-})();
+    } catch(e) {
+        console.error("Error al inicializar la aplicación:", e);
+        const loadingEl = document.getElementById('loading');
+        if (loadingEl) loadingEl.innerText = "Pucha,\nOcurrió un error al cargar los datos.";
+    }
+}

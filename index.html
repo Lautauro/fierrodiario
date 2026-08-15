@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-    <script type="module">
-        // Verificamos si necesitamos el polyfill
-        if (typeof Temporal === 'undefined') {
-            await import('https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.4/global.min.js');
-        }
-    </script>
 </head>
 <body>
     <dialog id="infoDialog" class="info-dialog" closedby="any">
@@ -117,6 +111,12 @@
             </div>
         </main>
     </section>
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="module">
+        // Verificamos si necesitamos el polyfill
+        if (typeof Temporal === 'undefined') {
+            await import('https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.4/global.min.js');
+        }
+        await import('./js/index.js');
+    </script>
 </body>
 </html>

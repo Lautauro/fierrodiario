@@ -67,6 +67,10 @@ span a:hover {
     min-height: 100vh;
 }
 
+#loading {
+    text-align: center;
+}
+
 .main-container, #loading {
     display: flex;
     flex-direction: column;
