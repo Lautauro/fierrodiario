@@ -83,6 +83,7 @@ span a:hover {
 
 .info-container {
     display: block;
+    max-width: 800px;
 }
 
 .info-container h1 {
@@ -162,7 +163,7 @@ dialog::backdrop {
 }
 
 .info-dialog {
-    width: fit-content;
+    width: max-content;
 }
 
 button {
@@ -240,7 +241,7 @@ button {
     width: 20px;
 }
 
-@media (max-width: 464px) {
+@media (max-width: 564px) {
     .main-container {
         margin-inline: 0;
     }
