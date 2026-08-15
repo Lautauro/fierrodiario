@@ -59,6 +59,7 @@ span a:hover {
     font-weight: 400;
     letter-spacing: 0.5px;
     padding-bottom: 2rem;
+    white-space: pre;
 }
 
 .container {
