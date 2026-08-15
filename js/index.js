@@ -76,7 +76,7 @@ function citarEstrofa(estrofa, url = true) {
     if (!estrofa || !(estrofa instanceof Estrofa)) {
         throw new Error('El valor ingresado en el campo "estrofa" no es del tipo Estrofa.');
     }
-    return `"${estrofa.estrofa}"\n\n` +
+    return `“${estrofa.estrofa}”\n\n` +
            "— El Gaucho Martín Fierro, José Hernández, Cap. " +
            `${estrofa.capitulo}, Estrofa ${estrofa.numero}` +
            (url ? `\n\n${PAGE_URL}` : '');
