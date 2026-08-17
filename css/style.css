@@ -86,6 +86,7 @@ a, a:visited {
 
 .info-container h1 {
     margin-bottom: .5em;
+    text-align: center;
 }
 
 .info-container h2 {
