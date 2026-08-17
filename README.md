@@ -32,7 +32,7 @@ adicional. De esta forma el proyecto se puede desplegar en cualquier hosting.
 - **Código:** [GNU GPLv3](LICENSE).
 - **El Gaucho Martín Fierro:** dominio público (José Hernández, 1872). La
   transcripción se libera bajo [CC BY-SA 4.0](LICENSE-CONTENT). Puede
-  encontrarla en Wikisource como ["El Gaucho Martín Fierro (1894)"](https://es.wikisource.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro_(1894).
+  encontrarla en Wikisource como ["El Gaucho Martín Fierro (1894)"](https://es.wikisource.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro_(1894)).
 
 ---
 
