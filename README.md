@@ -23,14 +23,15 @@ el proyecto se puede desplegar en cualquier hosting.
 
 ## Créditos
 
-- Texto: José Hernández, *El Gaucho Martín Fierro* – dominio público.
+- **Texto:** José Hernández, *El Gaucho Martín Fierro* – dominio público.
 - Algoritmo Mulberry32 tomado del blog de [Nikos Papadopoulos](https://www.4rknova.com/blog/2026/03/01/mulberry32-rng).
 
 ## Licencia
 
-- **Código:** [GNU GPLv3](LICENSE)
+- **Código:** [GNU GPLv3](LICENSE).
 - **Texto de las estrofas:** dominio público (José Hernández, 1872).  La
-  transcripción se libera bajo [CC0 1.0](LICENSE-CONTENT).
+  transcripción se libera bajo [CC BY-SA 4.0](LICENSE-CONTENT). Puede
+  encontrarla en Wikisource como ["El Gaucho Martín Fierro (1894)"](https://es.wikisource.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro_(1894).
 
 ---
 
