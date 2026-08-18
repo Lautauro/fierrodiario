@@ -28,6 +28,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
 
     <link rel="manifest" href="./site.webmanifest">
+    <script src="./js/index.js"></script>
 </head>
 <body>
     <dialog id="infoDialog" class="info-dialog" closedby="any">
@@ -171,12 +172,5 @@
             </div>
         </main>
     </section>
-    <script type="module">
-        // Verificamos si necesitamos el polyfill
-        if (typeof Temporal === 'undefined') {
-            await import('https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.4/global.min.js');
-        }
-        await import('./js/index.js');
-    </script>
 </body>
 </html>

@@ -121,10 +121,12 @@ if (document.readyState === 'loading') {
 
 async function init() {
     try {
-        const actualInstant = Temporal.Now.instant();
-        const ArgDate = actualInstant.toZonedDateTimeISO('America/Argentina/Buenos_Aires');
-        const dayOfYear = ArgDate.dayOfYear;
-        const year = ArgDate.year;
+        const now = new Date();
+        // UTC-3 según la Ley 26350
+        // https://www.argentina.gob.ar/normativa/nacional/ley-26350-136191/texto
+        const ArgDate = new Date(now.getTime() - (3 * 60 * 60 * 1000));
+        const year = ArgDate.getUTCFullYear();
+        const dayOfYear = Math.floor((ArgDate - new Date(Date.UTC(year, 0, 1))) / (24*60*60*1000)) + 1;
 
         const shareButton = document.getElementById("shareButton");
         const shareDialog = document.getElementById("shareDialog");
