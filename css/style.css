@@ -75,7 +75,7 @@ a, a:visited {
     flex-direction: column;
     height: 100vh;
     justify-content: center;
-    margin-inline: auto;
+    margin: 0 auto;
     max-width: 800px;
 }
 
