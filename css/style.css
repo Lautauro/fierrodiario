@@ -129,11 +129,22 @@ a, a:visited {
 }
 
 .icons-container > * {
-    transition: transform 200ms;
-    transition-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
+    color: inherit;
+    display: block;
+    flex-shrink: 0;
+    height: 24px;
+    width: 24px;
 }
-.icons-container > *:hover {
+
+.icons-container svg {
+    transition: transform 200ms cubic-bezier(.68, -0.55, .27, 1.55);
+}
+.icons-container svg:hover {
     transform: scale(1.2);
+}
+
+svg, svg path {
+    shape-rendering: geometricPrecision;
 }
 
 dialog {
