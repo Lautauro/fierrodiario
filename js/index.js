@@ -112,6 +112,14 @@ function getShareUrl(platform, estrofa) {
     }
 }
 
+const estrofasDataPromise = fetch('./json/estrofas.json')
+    .then(r => {
+        if (!r.ok) throw new Error(`Error HTTP, status: ${r.status}`);
+        return r.json();
+    })
+    .catch(err => {
+        throw err;
+    });
 
 if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", init);
@@ -121,9 +129,12 @@ if (document.readyState === 'loading') {
 
 async function init() {
     try {
-        const now = new Date();
+        // Cargar estrofas
+        const data = await estrofasDataPromise;
+
         // UTC-3 según la Ley 26350
         // https://www.argentina.gob.ar/normativa/nacional/ley-26350-136191/texto
+        const now = new Date();
         const ArgDate = new Date(now.getTime() - (3 * 60 * 60 * 1000));
         const year = ArgDate.getUTCFullYear();
         const dayOfYear = Math.floor((ArgDate - new Date(Date.UTC(year, 0, 1))) / (24*60*60*1000)) + 1;
@@ -146,11 +157,6 @@ async function init() {
             });
         }
 
-        // Cargar estrofas
-        const data = await fetch("./json/estrofas.json")
-            .then((r)  => r.json())
-            .catch((e) => { throw e; });
-        
         const estrofas = data.estrofas; 
         if (!estrofas) { throw new Error("No existe la llave \"estrofas\" en la base de datos.")};
 
