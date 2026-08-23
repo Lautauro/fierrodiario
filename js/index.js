@@ -68,6 +68,7 @@ function imprimirEstrofa(estrofa) {
     capituloEl.innerText   = estrofa.capitulo;
     numEstrofaEl.innerText = estrofa.numero;
     referenciaEl.href = `https://es.wikisource.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro_(1894)/${estrofa.capitulo}`;
+    referenciaEl.title = `Enlace al capítulo ${estrofa.capitulo}`
 }
 /**
  * @param {Estrofa} estrofa
